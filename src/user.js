@@ -12,13 +12,21 @@ const logger = require("pino")({
 function createStudentValidation(req, res, next) {
     const input = {};
 
-    Object.assign(input, req.body, {
-        "id": uuid.v4(),
-        "crtAt": Date.now().toString(),
-        "updAt": Date.now().toString()
-    });
-    req.input = input;
-    next();
+    if (req.body.name && req.body.roll && req.body.age && req.body.class && req.body.section && req.body.photo) {
+        Object.assign(input, req.body, {
+            "id": uuid.v4(),
+            "crtAt": Date.now().toString(),
+            "updAt": Date.now().toString()
+        });
+        req.input = input;
+        next();
+    } else {
+        logger.error({
+            "msg": "bad input for create an user",
+            "status": 400
+        }); // eslint-disable-next-line no-magic-numbers
+        res.sendStatus(400);
+    }
 }
 
 app.post("/student",
@@ -61,12 +69,20 @@ app.get("/student/:id",
 function updateStudentValidation(req, res, next) {
     const input = {};
 
-    Object.assign(input, req.body, {
-        "updAt": Date.now().toString()
-    });
-    req.input = input;
+    if (req.body.name && req.body.roll && req.body.age && req.body.class && req.body.section && req.body.photo) {
+        Object.assign(input, req.body, {
+            "updAt": Date.now().toString()
+        });
+        req.input = input;
 
-    next();
+        next();
+    } else {
+        logger.error({
+            "msg": "bad input for update an user",
+            "status": 400
+        }); // eslint-disable-next-line no-magic-numbers
+        res.sendStatus(400);
+    }
 }
 
 app.put("/student/:id",

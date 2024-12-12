@@ -7,7 +7,7 @@ const request = agent(app);
 
 const createInp = {
     "name": "abc xyz",
-    "age": 0,
+    "age": 20,
     "class": "X",
     "section": "A",
     "roll": "020AC123",
@@ -15,7 +15,7 @@ const createInp = {
 };
 const updInp = {
     "name": "abc pqr",
-    "age": 1,
+    "age": 21,
     "class": "X",
     "section": "B",
     "roll": "020AC123",
