@@ -33,8 +33,7 @@ describe("User Game Score Test cases", () => {
     });
     it("POST /student should respond with HTTP-200", (done) => {
         request.post("/student")
-            .send(createInp)
-            // eslint-disable-next-line no-magic-numbers
+            .send(createInp) // eslint-disable-next-line no-magic-numbers
             .expect(200)
             .end((err, res) => {
                 assert.ifError(err);
@@ -44,8 +43,7 @@ describe("User Game Score Test cases", () => {
             });
     });
     it("GET /student should respond with HTTP-200", (done) => {
-        request.get("/student" + studentId)
-            // eslint-disable-next-line no-magic-numbers
+        request.get("/student" + studentId) // eslint-disable-next-line no-magic-numbers
             .expect(200)
             .end((err, res) => {
                 assert.ifError(err);
@@ -55,8 +53,7 @@ describe("User Game Score Test cases", () => {
     });
     it("PUT /student should respond with HTTP-200", (done) => {
         request.put("/student" + studentId)
-            .send(updInp)
-            // eslint-disable-next-line no-magic-numbers
+            .send(updInp) // eslint-disable-next-line no-magic-numbers
             .expect(200)
             .end((err, res) => {
                 assert.ifError(err);
@@ -65,8 +62,7 @@ describe("User Game Score Test cases", () => {
             });
     });
     it("DELETE /student should respond with HTTP-200", (done) => {
-        request.delete("/student" + studentId)
-            // eslint-disable-next-line no-magic-numbers
+        request.delete("/student" + studentId) // eslint-disable-next-line no-magic-numbers
             .expect(200)
             .end((err, res) => {
                 assert.ifError(err);

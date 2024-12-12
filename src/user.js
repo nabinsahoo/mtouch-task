@@ -1,15 +1,10 @@
 "use strict";
 
 const express = require("express");
-const app = express();
 const uuid = require("uuid");
+const app = express();
 
 const Student = require("./db-function").StudentModel;
-
-// Get Student details by StudentId,Get all Students with pagination
-// Create Students with mandatory fields (name,age,class,section,rollNumber and photo as optional)
-// Update Student details which should update name,age,class,section,photo and rollNumber)
-// Delete Student with specific ID.
 
 function createStudentValidation(req, res, next) {
     const input = {};

@@ -13,8 +13,6 @@ app.get("/hello", (req, res) => {
 app.use(express.json());
 app.use("/", router);
 
-// eslint-disable-next-line no-magic-numbers
-app.listen(3000, () => {
-    // eslint-disable-next-line no-console
-    console.log("http://localhost:3000");
+app.listen(3000, () => { // eslint-disable-line no-magic-numbers
+    console.log("http://localhost:3000"); // eslint-disable-line no-console
 });

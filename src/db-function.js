@@ -2,8 +2,6 @@
 
 const mongoose = require("mongoose");
 
-// name,age,class,section,rollNumber,photo,createdAt and updatedAt
-
 const StudentSchema = new mongoose.Schema(
     {
         "id": {
