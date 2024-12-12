@@ -17,7 +17,7 @@ const updInp = {
     "name": "abc pqr",
     "age": 1,
     "class": "X",
-    "section": "b",
+    "section": "B",
     "roll": "020AC123",
     "photo": "data:base64/png....."
 };

@@ -12,7 +12,7 @@ const StudentSchema = new mongoose.Schema(
             "type": String,
             "minlength": 1,
             "maxLength": 256,
-            "required": [true, "Name required"]
+            "required": [true, "name required"]
         },
         "age": {
             "type": Number,
@@ -28,7 +28,7 @@ const StudentSchema = new mongoose.Schema(
         },
         "section": {
             "type": String,
-            "required": [true, "class required"]
+            "required": [true, "section required"]
         },
         "photo": { // blob format
             "type": String,
