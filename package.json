@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint . --ext .js",
     "start": "nodemon src/index.js",
-    "test": "mocha test/**.spec.js"
+    "test": "npm run lint && mocha test/**.spec.js"
   },
   "keywords": [],
   "author": "",

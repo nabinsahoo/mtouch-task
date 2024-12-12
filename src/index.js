@@ -16,3 +16,5 @@ app.use("/", router);
 app.listen(3000, () => { // eslint-disable-line no-magic-numbers
     console.log("http://localhost:3000"); // eslint-disable-line no-console
 });
+
+exports.app = app;

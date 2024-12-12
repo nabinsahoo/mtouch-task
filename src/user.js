@@ -9,19 +9,13 @@ const Student = require("./db-function").StudentModel;
 function createStudentValidation(req, res, next) {
     const input = {};
 
-    if (!req.body.name || !req.body.age || !req.body.class || !req.body.section || !req.body.roll || !req.body.photo) {
-        res.sendStatus(400); // eslint-disable-line no-magic-numbers
-    } else {
-        Object.assign(input, req.body, {
-            "id": uuid.v4(),
-            "crtAt": Date.now().toString(),
-            "updAt": Date.now().toString()
-        });
-
-        req.input = input;
-
-        next();
-    }
+    Object.assign(input, req.body, {
+        "id": uuid.v4(),
+        "crtAt": Date.now().toString(),
+        "updAt": Date.now().toString()
+    });
+    req.input = input;
+    next();
 }
 
 app.post("/student",
@@ -56,17 +50,12 @@ app.get("/student/:id",
 function updateStudentValidation(req, res, next) {
     const input = {};
 
-    if (!req.body.name || !req.body.age || !req.body.class || !req.body.section || !req.body.roll) {
-        res.sendStatus(400); // eslint-disable-line no-magic-numbers
-    } else {
-        Object.assign(input, req.body, {
-            "updAt": Date.now().toString()
-        });
+    Object.assign(input, req.body, {
+        "updAt": Date.now().toString()
+    });
+    req.input = input;
 
-        req.input = input;
-
-        next();
-    }
+    next();
 }
 
 app.put("/student/:id",
