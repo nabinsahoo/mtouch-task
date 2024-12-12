@@ -5,6 +5,9 @@ const uuid = require("uuid");
 const app = express();
 
 const Student = require("./db-function").StudentModel;
+const logger = require("pino")({
+    "name": "crud-app"
+});
 
 function createStudentValidation(req, res, next) {
     const input = {};
@@ -27,6 +30,10 @@ app.post("/student",
             res.send(result);
         } catch (err) {
             err.status = 500;
+            logger.error({
+                "msg": "unable to create an user",
+                err
+            });
             res.sendStatus(err);
         }
     }
@@ -42,6 +49,10 @@ app.get("/student/:id",
             res.send(result);
         } catch (err) {
             err.status = 500;
+            logger.error({
+                "msg": "unable to get the user",
+                err
+            });
             res.sendStatus(err);
         }
     }
@@ -77,6 +88,10 @@ app.put("/student/:id",
             res.send(result);
         } catch (err) {
             err.status = 500;
+            logger.error({
+                "msg": "unable to update the user",
+                err
+            });
             res.sendStatus(err);
         }
     }
@@ -92,6 +107,10 @@ app.delete("/student/:id",
             res.send({});
         } catch (err) {
             err.status = 500;
+            logger.error({
+                "msg": "unable to delete the user",
+                err
+            });
             res.sendStatus(err);
         }
     }
