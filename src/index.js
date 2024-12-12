@@ -3,6 +3,8 @@
 const express = require("express");
 const app = express();
 
+const port = 3000;
+
 require("./database"); // db connection
 const router = require("./user").app;
 
@@ -13,8 +15,8 @@ app.get("/hello", (req, res) => {
 app.use(express.json());
 app.use("/", router);
 
-app.listen(3000, () => { // eslint-disable-line no-magic-numbers
-    console.log("http://localhost:3000"); // eslint-disable-line no-console
+app.listen(port, () => {
+    console.log(`Port is running on ${port}`); // eslint-disable-line no-console
 });
 
 exports.app = app;
